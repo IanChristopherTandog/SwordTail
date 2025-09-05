@@ -1,0 +1,48 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://World/magma/lava2Frames.png" type="Texture" id=1]
+
+[sub_resource type="Animation" id=1]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("LAVA:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0 ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "lava"
+length = 1.2
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("LAVA:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 0, 1 ]
+}
+
+[node name="lava" type="Node2D"]
+
+[node name="LAVA" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+hframes = 2
+region_enabled = true
+region_rect = Rect2( -987, -50, 2141, 1590 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "lava"
+anims/RESET = SubResource( 1 )
+anims/lava = SubResource( 2 )

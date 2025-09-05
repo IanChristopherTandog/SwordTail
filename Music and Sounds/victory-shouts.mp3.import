@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/victory-shouts.mp3-02cbae635b96933439a89de5bc661f91.mp3str"
+
+[deps]
+
+source_file="res://Music and Sounds/victory-shouts.mp3"
+dest_files=[ "res://.import/victory-shouts.mp3-02cbae635b96933439a89de5bc661f91.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

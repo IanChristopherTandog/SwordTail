@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/fire-breath-6922.mp3-1c66d5d05a7814996aed480a79308c9d.mp3str"
+
+[deps]
+
+source_file="res://Music and Sounds/fire-breath-6922.mp3"
+dest_files=[ "res://.import/fire-breath-6922.mp3-1c66d5d05a7814996aed480a79308c9d.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

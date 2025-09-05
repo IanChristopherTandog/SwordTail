@@ -1,0 +1,64 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://UI/fonts/TheWildBreathOfZelda-15Lv.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://UI/fonts/PressStart2P-Regular.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://Music and Sounds/clicking.mp3" type="AudioStream" id=3]
+[ext_resource path="res://Music and Sounds/adventure.mp3" type="AudioStream" id=4]
+[ext_resource path="res://UI/PauseScene.gd" type="Script" id=5]
+
+[sub_resource type="DynamicFont" id=1]
+size = 50
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 12
+font_data = ExtResource( 2 )
+
+[node name="PauseScene" type="Control"]
+pause_mode = 2
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_top = -90.0
+margin_right = 320.0
+margin_bottom = 90.0
+script = ExtResource( 5 )
+
+[node name="bgcolor" type="ColorRect" parent="."]
+self_modulate = Color( 1, 1, 1, 0.152941 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 1 )
+
+[node name="Title" type="Label" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -72.5
+margin_top = -50.5
+margin_right = 72.5
+margin_bottom = 2.5
+custom_fonts/font = SubResource( 1 )
+text = "PAUSED"
+align = 1
+
+[node name="Note" type="Label" parent="."]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -114.0
+margin_top = -65.0
+margin_right = 114.0
+margin_bottom = -49.0
+custom_fonts/font = SubResource( 2 )
+text = "Press Esc To resume"
+
+[node name="Music" type="Node2D" parent="."]
+
+[node name="bgmusic" type="AudioStreamPlayer" parent="Music"]
+stream = ExtResource( 4 )
+volume_db = 1.0
+
+[node name="clickingSound" type="AudioStreamPlayer" parent="Music"]
+stream = ExtResource( 3 )

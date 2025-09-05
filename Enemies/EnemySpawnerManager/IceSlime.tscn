@@ -1,0 +1,9 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Enemies/EnemySpawner.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Enemies/EnemySpawnerManager/IceSlime.gd" type="Script" id=2]
+[ext_resource path="res://Enemies/IceSlime.tscn" type="PackedScene" id=3]
+
+[node name="IceSlime" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
+enemy_scene = ExtResource( 3 )

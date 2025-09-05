@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/forest-slime.mp3-440534529b7f1a31b6004f5014c62681.mp3str"
+
+[deps]
+
+source_file="res://Music and Sounds/forest-slime.mp3"
+dest_files=[ "res://.import/forest-slime.mp3-440534529b7f1a31b6004f5014c62681.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

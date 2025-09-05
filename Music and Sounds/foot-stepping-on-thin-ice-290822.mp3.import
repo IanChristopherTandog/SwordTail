@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/foot-stepping-on-thin-ice-290822.mp3-e2c3bc716dc31458e6f82b26f497e6e6.mp3str"
+
+[deps]
+
+source_file="res://Music and Sounds/foot-stepping-on-thin-ice-290822.mp3"
+dest_files=[ "res://.import/foot-stepping-on-thin-ice-290822.mp3-e2c3bc716dc31458e6f82b26f497e6e6.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

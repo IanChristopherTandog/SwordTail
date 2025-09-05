@@ -1,0 +1,115 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://UI/HealthUI.gd" type="Script" id=1]
+[ext_resource path="res://UI/HeartUIFull.png" type="Texture" id=2]
+[ext_resource path="res://UI/HeartUIEmpty.png" type="Texture" id=3]
+[ext_resource path="res://UI/fonts/PressStart2P-Regular.ttf" type="DynamicFontData" id=4]
+[ext_resource path="res://UI/circle bar progress dark grey.png" type="Texture" id=5]
+[ext_resource path="res://UI/staminaDisplay.tscn" type="PackedScene" id=6]
+[ext_resource path="res://UI/circle bar progress green.png" type="Texture" id=7]
+[ext_resource path="res://UI/levelbar/glassPanel_200.png" type="Texture" id=8]
+[ext_resource path="res://Action RPG Resources/Action RPG Resources/Player/Player.png" type="Texture" id=9]
+[ext_resource path="res://Player/Player - Copy.png" type="Texture" id=10]
+[ext_resource path="res://UI/levelbar/grey_circle.png" type="Texture" id=11]
+
+[sub_resource type="DynamicFont" id=2]
+size = 7
+font_data = ExtResource( 4 )
+
+[node name="HealthUI" type="Control"]
+margin_right = 60.0
+margin_bottom = 11.0
+script = ExtResource( 1 )
+
+[node name="HeartUIEmpty" type="TextureRect" parent="."]
+visible = false
+margin_left = 28.0
+margin_top = 30.0
+margin_right = 88.0
+margin_bottom = 41.0
+texture = ExtResource( 3 )
+stretch_mode = 2
+
+[node name="HeartUIFull" type="TextureRect" parent="."]
+visible = false
+margin_left = 28.0
+margin_top = 30.0
+margin_right = 43.0
+margin_bottom = 41.0
+texture = ExtResource( 2 )
+expand = true
+stretch_mode = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="newUI" type="Node2D" parent="."]
+position = Vector2( 2, -15 )
+
+[node name="Sprite2" type="Sprite" parent="newUI"]
+modulate = Color( 0.729412, 0.67451, 0.67451, 1 )
+position = Vector2( 50.1875, 25.1875 )
+scale = Vector2( 0.258125, 0.524038 )
+texture = ExtResource( 8 )
+
+[node name="Sprite" type="Sprite" parent="newUI"]
+modulate = Color( 0.729412, 0.67451, 0.67451, 1 )
+position = Vector2( 14.75, 28.75 )
+scale = Vector2( 0.1025, 0.788462 )
+texture = ExtResource( 8 )
+
+[node name="hpRegen" type="TextureProgress" parent="newUI"]
+modulate = Color( 0.52549, 0.92549, 0.254902, 1 )
+margin_left = 77.0
+margin_top = 19.0
+margin_right = 125.0
+margin_bottom = 67.0
+rect_scale = Vector2( 0.15, 0.15 )
+max_value = 5.0
+value = 5.0
+texture_progress = ExtResource( 11 )
+fill_mode = 4
+
+[node name="Sprite4" type="Sprite" parent="newUI"]
+position = Vector2( 14, 28 )
+scale = Vector2( 0.8, 0.8 )
+texture = ExtResource( 10 )
+
+[node name="Sprite3" type="Sprite" parent="newUI"]
+visible = false
+position = Vector2( 14, 28 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 9 )
+hframes = 60
+frame = 21
+region_rect = Rect2( 1177, 21, 13, 12 )
+
+[node name="staminaDisplay" parent="newUI" instance=ExtResource( 6 )]
+margin_left = 24.5
+margin_top = 20.0
+margin_right = 40.5
+margin_bottom = 36.0
+rect_scale = Vector2( 0.25, 0.2 )
+
+[node name="levelCount" type="Label" parent="."]
+margin_left = 20.0
+margin_top = 14.0
+margin_right = 27.0
+margin_bottom = 21.0
+custom_fonts/font = SubResource( 2 )
+text = "1"
+
+[node name="expBar" type="TextureProgress" parent="."]
+visible = false
+margin_left = 5.0
+margin_top = 2.0
+margin_right = 21.0
+margin_bottom = 18.0
+texture_under = ExtResource( 5 )
+texture_progress = ExtResource( 7 )
+fill_mode = 4
+
+[node name="hpRegenTimer" type="Timer" parent="."]
+wait_time = 5.0
+
+[connection signal="timeout" from="hpRegenTimer" to="." method="_on_hpRegenTimer_timeout"]

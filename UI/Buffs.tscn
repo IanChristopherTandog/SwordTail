@@ -1,0 +1,291 @@
+[gd_scene load_steps=28 format=2]
+
+[ext_resource path="res://UI/levelbar/barHorizontal_green_mid 200.png" type="Texture" id=1]
+[ext_resource path="res://UI/levelbar/barHorizontal_white_mid 200.png" type="Texture" id=2]
+[ext_resource path="res://UI/Buffs.gd" type="Script" id=3]
+[ext_resource path="res://UI/fonts/PressStart2P-Regular.ttf" type="DynamicFontData" id=4]
+[ext_resource path="res://Player/Player.png" type="Texture" id=5]
+[ext_resource path="res://UI/icons/running.png" type="Texture" id=6]
+[ext_resource path="res://Action RPG Resources/Action RPG Resources/UI/HeartUIFull.png" type="Texture" id=7]
+[ext_resource path="res://UI/icons/SnowPlat Sheet.png" type="Texture" id=8]
+[ext_resource path="res://UI/icons/life_steal.png" type="Texture" id=9]
+[ext_resource path="res://UI/icons/increased_hp.png" type="Texture" id=10]
+[ext_resource path="res://UI/icons/regeneration.png" type="Texture" id=11]
+[ext_resource path="res://UI/medium.png" type="Texture" id=12]
+
+[sub_resource type="AtlasTexture" id=24]
+atlas = ExtResource( 5 )
+region = Rect2( 1152, 0, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=25]
+atlas = ExtResource( 5 )
+region = Rect2( 1216, 0, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=26]
+atlas = ExtResource( 5 )
+region = Rect2( 1280, 0, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=27]
+atlas = ExtResource( 5 )
+region = Rect2( 1344, 0, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=28]
+atlas = ExtResource( 5 )
+region = Rect2( 1408, 0, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=29]
+atlas = ExtResource( 5 )
+region = Rect2( 1472, 0, 64, 64 )
+
+[sub_resource type="SpriteFrames" id=23]
+animations = [ {
+"frames": [ SubResource( 24 ), SubResource( 25 ), SubResource( 26 ), SubResource( 27 ), SubResource( 28 ), SubResource( 29 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="DynamicFont" id=1]
+size = 8
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=30]
+size = 9
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=31]
+size = 6
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=32]
+size = 10
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=33]
+size = 8
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=34]
+size = 4
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=35]
+size = 4
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=36]
+size = 3
+font_data = ExtResource( 4 )
+
+[node name="Buffs" type="Control"]
+pause_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 3 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 0.333333 )
+
+[node name="Player" type="AnimatedSprite" parent="."]
+position = Vector2( 16, 20 )
+scale = Vector2( 0.6, 0.6 )
+frames = SubResource( 23 )
+frame = 3
+playing = true
+
+[node name="TextureProgress" type="TextureProgress" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_bottom = -172.0
+texture_under = ExtResource( 2 )
+texture_progress = ExtResource( 1 )
+nine_patch_stretch = true
+
+[node name="labels" type="Node2D" parent="."]
+
+[node name="level" type="Label" parent="labels"]
+margin_left = 32.0
+margin_top = 16.0
+margin_right = 72.0
+margin_bottom = 24.0
+custom_fonts/font = SubResource( 1 )
+text = "Lvl: "
+
+[node name="Label" type="Label" parent="labels"]
+margin_left = 16.0
+margin_top = 56.0
+margin_right = 61.0
+margin_bottom = 70.0
+custom_fonts/font = SubResource( 30 )
+text = "Stats"
+
+[node name="health" type="Label" parent="labels"]
+margin_left = 24.0
+margin_top = 72.0
+margin_right = 36.0
+margin_bottom = 80.0
+custom_fonts/font = SubResource( 31 )
+text = "HP:"
+align = 1
+
+[node name="attack" type="Label" parent="labels"]
+margin_left = 24.0
+margin_top = 83.0
+margin_right = 42.0
+margin_bottom = 91.0
+custom_fonts/font = SubResource( 31 )
+text = "ATK: 1"
+align = 1
+
+[node name="speed" type="Label" parent="labels"]
+margin_left = 24.0
+margin_top = 94.0
+margin_right = 42.0
+margin_bottom = 102.0
+custom_fonts/font = SubResource( 31 )
+text = "SPD: 80"
+align = 1
+
+[node name="buffsLabel" type="Node2D" parent="."]
+
+[node name="PassiveLabel" type="Label" parent="buffsLabel"]
+margin_left = 128.0
+margin_top = 24.0
+margin_right = 278.0
+margin_bottom = 34.0
+custom_fonts/font = SubResource( 32 )
+text = "Passives Skills"
+
+[node name="addHp" type="Label" parent="buffsLabel"]
+margin_left = 96.0
+margin_top = 80.0
+margin_right = 288.0
+margin_bottom = 88.0
+custom_fonts/font = SubResource( 33 )
+text = "Increase Health (Lvl 3+)"
+
+[node name="hpDescription" type="Label" parent="buffsLabel"]
+margin_left = 117.0
+margin_top = 93.0
+margin_right = 293.0
+margin_bottom = 114.0
+custom_fonts/font = SubResource( 34 )
+text = "-Boosts the player's maximum health, allowing them to survive longer in combat."
+autowrap = true
+
+[node name="LifeSteal" type="Label" parent="buffsLabel"]
+margin_left = 96.0
+margin_top = 48.0
+margin_right = 240.0
+margin_bottom = 56.0
+custom_fonts/font = SubResource( 33 )
+text = "Life Steal (Lvl 2)"
+
+[node name="LifeStealDesc" type="Label" parent="buffsLabel"]
+margin_left = 117.0
+margin_top = 62.0
+margin_right = 293.0
+margin_bottom = 75.0
+custom_fonts/font = SubResource( 34 )
+text = "- Restores a portion of health with each enemy defeated."
+autowrap = true
+
+[node name="addHp3" type="Label" parent="buffsLabel"]
+margin_left = 96.0
+margin_top = 122.0
+margin_right = 264.0
+margin_bottom = 130.0
+custom_fonts/font = SubResource( 33 )
+text = "Regeneration (lvl 6+)"
+
+[node name="RegenderationDesc" type="Label" parent="buffsLabel"]
+margin_left = 117.0
+margin_top = 139.0
+margin_right = 293.0
+margin_bottom = 144.0
+custom_fonts/font = SubResource( 34 )
+text = "- Gradually restores health over time."
+autowrap = true
+
+[node name="icons" type="Node2D" parent="."]
+
+[node name="hp" type="Sprite" parent="icons"]
+position = Vector2( 18, 74 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 7 )
+
+[node name="att" type="Sprite" parent="icons"]
+position = Vector2( 18, 85 )
+scale = Vector2( 0.0136719, 0.0136719 )
+texture = ExtResource( 8 )
+
+[node name="att2" type="Sprite" parent="icons"]
+position = Vector2( 18, 96 )
+scale = Vector2( 0.0136719, 0.0136719 )
+texture = ExtResource( 6 )
+
+[node name="increase hp" type="Sprite" parent="icons"]
+position = Vector2( 107, 98 )
+scale = Vector2( 0.018, 0.018 )
+texture = ExtResource( 10 )
+
+[node name="LifeSteal" type="Sprite" parent="icons"]
+position = Vector2( 107.88, 66.12 )
+scale = Vector2( 0.02, 0.02 )
+texture = ExtResource( 9 )
+
+[node name="Regen" type="Sprite" parent="icons"]
+position = Vector2( 108, 141 )
+scale = Vector2( 0.0190424, 0.0190424 )
+texture = ExtResource( 11 )
+
+[node name="Quest" type="Node2D" parent="."]
+position = Vector2( -8, 72 )
+
+[node name="Scroll" type="Sprite" parent="Quest"]
+modulate = Color( 0.984314, 0.952941, 0.631373, 1 )
+position = Vector2( 53.23, 66.03 )
+scale = Vector2( 0.0645682, 0.0429062 )
+texture = ExtResource( 12 )
+
+[node name="Label" type="Label" parent="Quest"]
+margin_left = 38.0
+margin_top = 48.0
+margin_right = 66.0
+margin_bottom = 52.0
+custom_fonts/font = SubResource( 35 )
+text = "Quest"
+align = 1
+
+[node name="ice" type="Label" parent="Quest"]
+visible = false
+margin_left = 32.0
+margin_top = 56.0
+margin_right = 72.0
+margin_bottom = 77.0
+custom_fonts/font = SubResource( 36 )
+text = "Reach Level 3 to have have the power to destroy the Icebound Rift"
+autowrap = true
+
+[node name="fire" type="Label" parent="Quest"]
+visible = false
+margin_left = 32.0
+margin_top = 56.0
+margin_right = 72.0
+margin_bottom = 77.0
+custom_fonts/font = SubResource( 36 )
+text = "Reach Level 6 to have have the power to destroy the Obsidian Riftwall!"
+autowrap = true
+
+[node name="general" type="Label" parent="Quest"]
+visible = false
+margin_left = 32.0
+margin_top = 56.0
+margin_right = 72.0
+margin_bottom = 77.0
+custom_fonts/font = SubResource( 36 )
+text = "Defeat all enemies!"
+autowrap = true
